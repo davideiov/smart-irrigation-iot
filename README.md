@@ -46,7 +46,7 @@ The farmer can watch these informations (weather forecast, fields info and water
 
 1. Clone the repository
         
-        git clone https://github.com/davideiov/smart-irrigation.git
+        git clone https://github.com/davideiov/smart-irrigation-iot.git
         
 2. Launch LocalStack
         
