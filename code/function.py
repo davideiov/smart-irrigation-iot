@@ -71,7 +71,7 @@ def process_data():
 	saved_water_fields = []
 	
 	for field in fields:
-		crop_type = field['type']
+		crop_type = field['crop_type']
 		mq_field = float(field['mq_available'])
 		expected_fabb = float(fabb_schema[crop_type][month]) #fabbisogno quotidiano, lt/m2 al giorno
 		fabb_today = expected_fabb
