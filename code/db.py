@@ -65,10 +65,10 @@ for i in range(int(datetime.datetime.now().strftime("%d")) - 1):
 	days.append(int(random.randint(75,300)))
 	table_water.update_item(Key={'month-year': '05-2022'}, UpdateExpression="set days = :days", ExpressionAttributeValues={':days': days})
 	
-table_fields.put_item(Item={'id': '1', 'mq_available': '500', 'type': 'mais'})
-table_fields.put_item(Item={'id': '2', 'mq_available': '350', 'type': 'soia'})
-table_fields.put_item(Item={'id': '3', 'mq_available': '600', 'type': 'bietola'})
-table_fields.put_item(Item={'id': '4', 'mq_available': '550', 'type': 'riso'})
+table_fields.put_item(Item={'id': '1', 'mq_available': '500', 'crop_type': 'mais'})
+table_fields.put_item(Item={'id': '2', 'mq_available': '350', 'crop_type': 'soia'})
+table_fields.put_item(Item={'id': '3', 'mq_available': '600', 'crop_type': 'bietola'})
+table_fields.put_item(Item={'id': '4', 'mq_available': '550', 'crop_type': 'riso'})
 
 print('Table', table_water, 'created and populated!')
 print('Table', table_fields, 'created and populated!')
