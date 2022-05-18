@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+
+  <!-- bootstrap core css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- my css -->
+  <style>
+    html{
+      height: 100%;
+      width 100%;
+    }
+
+    body{
+      height: 100%;
+      width 100%;
+      font-family: serif;
+      background-image: url("https://wallpaperboat.com/wp-content/uploads/2019/12/leaf-pattern-18.jpg");
+      background-size: 100%;
+      background-repeat: repeat-y;
+      background-position: center;
+    }
+
+    #header{
+      border: solid 1px black;
+    }
+
+    #header h3{
+      color: green;
+      text-align: center;
+      width: 100%;
+    }
+
+    #sidebar {
+      transition: .5s;
+      opacity: 0.8;
+      min-width: 8vw;
+      width: 8vw;
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100%;
+      z-index: 1;
+      border: solid 1px black;
+      float: left;
+    }
+
+    #sidebar:hover{
+      transition: .5s;
+      opacity: 1;
+    }
+
+    #sidebar a:hover{
+      color: green;
+    }
+
+    #sidebar p{
+      margin: auto;
+      color: green;
+    }
+
+    #sidebar ul{
+      margin-top: 5vh;
+    }
+
+    #sidebar li{
+      margin-bottom: 3vh;
+    }
+
+    #sidebar li span{
+      margin: auto;
+      margin-left: 1vw;
+    }
+
+    #sidebar li a svg{
+      margin-left: 3vw;
+    }
+
+    #sidebar div:last-child{
+      display: inline-block;
+      text-align: center;
+      margin-bottom: 2vh;
+    }
+
+    #sidebar div p{
+      color: white;
+    }
+
+    #welcome {
+      transition: 0.8s;
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fyesofcorsa.com%2Fwp-content%2Fuploads%2F2018%2F08%2F4K-Field-Best-Wallpaper.jpg&f=1&nofb=1");
+      opacity: 0.9;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      text-shadow: 2px 2px black;
+      height: 40%;
+      width: 91.5vw;
+      font-size: 20px;
+      font-style: italic;
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 2px;
+      margin-left: 8vw;
+      padding-top: 10vh;
+      border: solid 2px black;
+    }
+
+    #welcome:hover {
+      transition: 1s;
+      opacity: 1;
+    }
+
+    #welcome p{
+      opacity: 1;
+      line-spacing: 0.8;
+      margin: auto;
+      width: 100%;
+      text-align: center;
+    }
+
+    #div_weather{
+      margin: auto;
+      margin-top: 5vh;
+      width: 60vw;
+      border-radius: 15px;
+      border: solid 2px black;
+    }
+
+    #fields {
+      width: 50vw;
+      transition: .8s;
+      margin: auto;
+      margin-top: 5vh;
+    }
+
+    #field1, #field2, #field3, #field4 {
+      transition: .8s;
+      border: 2px solid;
+      border-radius: 10px;
+      padding-left: 5px;
+      padding-bottom: 5px;
+      display: inline-block;
+      width:49.5%;
+      min-width:49.5%;
+    }
+
+    #field1 {
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DIVsiIUj2mEn9aMi7c2LQwHaE8%26pid%3DApi&f=1");
+      background-position: bottom;
+      background-size: 150%;
+      opacity: 0.9;
+    }
+
+    #field1:hover {
+      opacity: 1;
+    }
+
+    #field2 {
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F8%2F0%2F6%2F425688.jpg&f=1&nofb=1");
+      background-position: bottom;
+      background-size: 150%;
+      opacity: 0.9;
+    }
+
+    #field2:hover {
+      opacity: 1;
+    }
+
+    #field3 {
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uLPYRaJTauFBbo2Nb8-GQwHaE8%26pid%3DApi&f=1");
+      background-position: bottom;
+      background-size: 150%;
+      opacity: 0.9;
+    }
+
+    #field3:hover {
+      opacity: 1;
+    }
+
+    #field4 {
+      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F52%2F28%2FiaIJE7.jpg&f=1&nofb=1");
+      background-position: bottom;
+      background-size: 150%;
+      opacity: 0.9;
+    }
+
+    #field4:hover {
+      opacity: 1;
+    }
+
+    #fields span {
+      color: white;
+      font-style: italic;
+      font-weight: bold;
+      font-family: serif;
+      line-height: 1px;
+      color: white;
+      text-shadow: 2px 2px black;
+    }
+
+    #fields h5 {
+      color: white;
+      font-style: italic;
+      font-weight: bold;
+      font-family: serif;
+      margin-top: 0px;
+      margin-bottom: 80px;
+      text-align: center;
+      text-shadow: 2px 2px black;
+    }
+
+    #field3, #field4 {
+      margin-top: 1vh;
+    }
+
+    #charts{
+      transition .8s;
+      border-radius: 15px;
+      background-color: lightgrey;
+      width: 50%;
+      border: solid 2px;
+      margin: auto;
+      margin-top: 5vh;
+    }
+
+    #sprinklers {
+      transition:margin .8s ease;
+      border: solid 2px;
+      margin: auto;
+      margin-top: 8vh;
+      margin-bottom: 4vh;
+      color: black;
+      padding: 3vh;
+      border-radius: 15px;
+      background-color: lightgrey;
+      text-align: center;
+      transition: 0.2s;
+      width: 50%;
+    }
+
+    #sprinklers select {
+      border: solid 1px;
+      margin: auto;
+      width: 50%;
+    }
+
+    #sprinklers input {
+      border: solid 1px;
+      margin: auto;
+      width: 50%;
+    }
+
+    #footer {
+      position: relative;
+      bottom: 0;
+      height: 6%;
+      width: 100%;
+      background-color: #212529;
+      padding: 1vh;
+      border: solid 2px black;
+    }
+
+    #footer p{
+      width: 100%;
+      color: white;
+      text-align: center;
+      margin: auto;
+    }
+
+    .onoffswitch {
+        position: relative;
+        width: 80px;
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select: none;
+        margin: auto;
+    }
+    .onoffswitch-checkbox {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .onoffswitch-label {
+        display: block; overflow: hidden; cursor: pointer;
+        height: 47px; padding: 0; line-height: 47px;
+        border: 3px solid black; border-radius: 47px;
+        background-color: #FA0000;
+        transition: background-color 0.3s ease-in;
+    }
+    .onoffswitch-label:before {
+        content: "";
+        display: block; width: 47px; margin: 0px;
+        background: #FFFFFF;
+        position: absolute; top: 0; bottom: 0;
+        right: 31px;
+        border: 2px solid #E3E3E3; border-radius: 47px;
+        transition: all 0.3s ease-in 0s;
+    }
+
+    .onoffswitch-checkbox:checked + .onoffswitch-label {
+        background-color: #49E845;
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+       border-color: #49E845;
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+        right: 0px;
+    }
+
+    @media screen and (max-width: 650px){
+      #fields{
+        width: 60%;
+        margin: auto;
+      }
+
+      #field1 {
+        display: block;
+        width: 50%;
+        margin: auto;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+      }
+      #field2 {
+        display: block;
+        width: 50%;
+        margin: auto;
+        margin-bottom: 3vh;
+      }
+      #field3 {
+        display: block;
+        width: 50%;
+        margin: auto;
+        margin-bottom: 3vh;
+      }
+      #field4 {
+        display: block;
+        width: 50%;
+        margin: auto;
+        margin-bottom: 3vh;
+      }
+    }
+
+  </style>
+
+  <script type="text/javascript">
+  	document.getElementById("myonoffswitch").checked = false;
+  
+    function openNav() {
+      if (document.getElementById("sidebar").style.width == "8vw") {
+        document.getElementById("sidebar").style.width = "16vw";
+        document.getElementById("welcome").style.marginLeft = "16vw";
+        document.getElementById("home").hidden = false;
+        document.getElementById("weather").hidden = false;
+        document.getElementById("crops").hidden = false;
+        document.getElementById("water").hidden = false;
+        document.getElementById("set").hidden = false;
+      } else {
+        document.getElementById("sidebar").style.width = "8vw";
+        document.getElementById("welcome").style.marginLeft = "8vw";
+        document.getElementById("home").hidden = true;
+        document.getElementById("weather").hidden = true;
+        document.getElementById("crops").hidden = true;
+        document.getElementById("water").hidden = true;
+        document.getElementById("set").hidden = true;
+      }
+    }
+    
+    function activateSprinklers(){
+    	var f = document.getElementById("num_field").value;
+    	var m = document.getElementById("minutes").value;
+    	alert("Sprinklers of field number " + f + " activated for " + m + " minutes!");
+    	document.getElementById("myonoffswitch").checked = false;
+    }
+    
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="makeChart({{water}})">
+
+  <div id="header" class="px-3 py-2 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <h3 class="d-flex flex-wrap align-items-center justify-content-center">Smart Irrigation for SCIOT</h3>
+      </div>
+    </div>
+  </div>
+
+  <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-1 bg-dark nav__cont">
+    <p class="d-flex align-items-center my-2 text-decoration-none">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-tree" viewBox="0 0 16 16">
+        <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"/>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="32" fill="currentColor" class="bi bi-cloud-arrow-up" viewBox="0 0 16 32">
+        <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
+        <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+      </svg>
+    </p>
+    <hr style="color: white">
+    <a class="d-inline-flex p-0 bd-highlight link-light text-decoration-none justify-content-center" onclick="openNav()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+      </svg>
+    </a>
+    <hr style="color: white">
+    <ul class="d-flex nav nav-pills flex-column flex-shrink-0 mb-auto">
+      <li class="nav-item">
+        <a href="#welcome" class="nav-link link-light p-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+          </svg>
+          <span id="home" hidden class="fs-4">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="#div_weather" class="nav-link link-light p-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cloud-sun" viewBox="0 0 16 16">
+            <path d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .624.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .51-.375A3.502 3.502 0 0 1 7 8zm4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5h-.027z"/>
+            <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0v-1zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708l.707-.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708l-.708-.707zm1.734 3.374a2 2 0 1 1 3.296 2.198c.199.281.372.582.516.898a3 3 0 1 0-4.84-3.225c.352.011.696.055 1.028.129zm4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377zM14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
+          </svg>
+          <span id="weather" hidden class="fs-4">Weather</span>
+        </a>
+      </li>
+      <li>
+        <a href="#fields" class="nav-link link-light p-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/>
+          </svg>
+          <span id="crops" hidden class="fs-4">Fields</span>
+        </a>
+      </li>
+      <li>
+        <a href="#charts" class="nav-link link-light p-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-moisture" viewBox="0 0 16 16">
+            <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+          </svg>
+          <span id="water" hidden class="fs-4">Water</span>
+        </a>
+      </li>
+      <li>
+        <a href="#sprinklers" class="nav-link link-light p-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"/>
+          </svg>
+          <span id="set" hidden class="fs-4">Settings</span>
+        </a>
+      </li>
+    </ul>
+    <hr style="color: white">
+    <div>
+      <a href="https://github.com/davideiov" class="d-flex align-items-center  text-decoration-none" title="Search me on github!">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="18" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        <p>Davide Iovino</p>
+      </a>
+    </div>
+	</div>
+
+  <div id="welcome">
+    <p>Welcome to the Smart Irrigation project.<br>
+    Let's start to manage your infrastructure!</p>
+  </div>
+
+  <a id="div_weather" class="weatherwidget-io" href="https://forecast7.com/it/40d9314d53/nola/" data-label_1="NOLA" data-label_2="Weather" data-theme="original" >NOLA Weather</a>
+  <script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+  </script>
+
+  <div id="fields">
+    <div id="field1">
+      <h5>Field 1</h5>
+      <span>Crop type: {{fields[0]["type"]}}</span><br>
+      <span>Dimension (mq): {{fields[0]["mq_available"]}}</span><br>
+    </div>
+    <div id="field2">
+      <h5>Field 2</h5>
+      <span>Crop type: {{fields[1]["type"]}}</span><br>
+      <span>Dimension (mq): {{fields[1]["mq_available"]}}</span><br>
+    </div>
+    <br>
+    <div id="field3">
+      <h5>Field 3</h5>
+      <span>Crop type: {{fields[2]["type"]}}</span><br>
+      <span>Dimension (mq): {{fields[2]["mq_available"]}}</span><br>
+    </div>
+    <div id="field4">
+      <h5>Field 4</h5>
+      <span>Crop type: {{fields[3]["type"]}}</span><br>
+      <span>Dimension (mq): {{fields[3]["mq_available"]}}</span><br>
+    </div>
+  </div>
+
+  <div id="charts">
+    <canvas id="water_chart"></canvas>
+  </div>
+  <script>
+  	function makeChart(arr){
+		const labels = ['January', 'February', 'March', 'April',
+		  'May', 'June', 'July', 'August', 'September', 'October',
+		  'November', 'December'];
+		  
+		const data = {
+		  labels: labels,
+		  datasets: [{
+		    label: 'Water saved for month (in Liters)',
+		    backgroundColor: 'rgb(100, 255, 100)',
+		    borderColor: 'rgb(255, 0, 50)',
+		    data: [
+				arr[0],
+				arr[1],
+				arr[2],
+				arr[3],
+				arr[4],
+				arr[5],
+				arr[6],
+				arr[7],
+				arr[8],
+				arr[9],
+				arr[10],
+				arr[11]
+			],
+		  }]
+		};
+
+		const config = {
+		  type: 'line',
+		  data: data,
+		  options: {}
+		};
+
+		const myChart = new Chart(
+		  document.getElementById('water_chart'),
+		  config
+		);
+	}
+  </script>
+
+  <div id="sprinklers">
+    <form>
+      <h3>Manual start of sprinklers</h3>
+      <select id="num_field" class="form-select" aria-label="Default select example">
+        <option selected>Select the field</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        <option value="4">Four</option>
+      </select>
+      <div class="mb-3">
+        <label for="minutes" class="form-label">Enter how many minutes to switch on</label>
+        <input type="text" placeholder="30 (minutes)" class="form-control" id="minutes">
+      </div>
+      <span>Slide to activate</span>
+      <div class="onoffswitch">
+          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" onchange="activateSprinklers()">
+          <label class="onoffswitch-label" for="myonoffswitch"></label>
+      </div>
+
+    </form>
+  </div>
+
+  <div id="footer">
+    <p>Serverless Computing for IoT - Università di Salerno</p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
+
