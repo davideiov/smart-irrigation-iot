@@ -86,6 +86,11 @@ and then go to
         
         aws lambda create-function --function-name smartIrrigation --zip-file fileb://smartIrrigation.zip --handler function.lambda_handler --runtime python3.8 --role arn:aws:iam::000000000000:role/lambdarole --endpoint-url=http://localhost:4566
 
+>  4b. If you want invoke the lambda function manually, at the first generate the random values of sensors and then invoke the serverless function
+        
+        python3 sensors.py
+        aws lambda invoke --function-name smartIrrigation out --endpoint-url=http://localhost:4566
+
 >  5. Set up a CloudWatch rule to trigger the lambda function every day at 8:15
 >>   1. Create the rule and save the Arn (it should be something like arn:aws:events:us-east-2:000000000000:rule/everyDay)       
    
