@@ -133,28 +133,19 @@
     }
 
     #fields {
-      width: 50vw;
+      width: 65vw;
+      height: 35vh;
       transition: .8s;
       margin: auto;
       margin-top: 5vh;
     }
 
-    #field1, #field2, #field3, #field4 {
-      transition: .8s;
-      border: 2px solid;
-      border-radius: 10px;
-      padding-left: 5px;
-      padding-bottom: 5px;
-      display: inline-block;
-      width:49.5%;
-      min-width:49.5%;
-    }
-
     #field1 {
       background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DIVsiIUj2mEn9aMi7c2LQwHaE8%26pid%3DApi&f=1");
       background-position: bottom;
-      background-size: 150%;
+      background-size: 100%;
       opacity: 0.9;
+      height: 100%;
     }
 
     #field1:hover {
@@ -164,8 +155,9 @@
     #field2 {
       background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F8%2F0%2F6%2F425688.jpg&f=1&nofb=1");
       background-position: bottom;
-      background-size: 150%;
+      background-size: 100%;
       opacity: 0.9;
+      height: 100%;
     }
 
     #field2:hover {
@@ -175,8 +167,9 @@
     #field3 {
       background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uLPYRaJTauFBbo2Nb8-GQwHaE8%26pid%3DApi&f=1");
       background-position: bottom;
-      background-size: 150%;
+      background-size: 100%;
       opacity: 0.9;
+      height: 100%;
     }
 
     #field3:hover {
@@ -186,8 +179,9 @@
     #field4 {
       background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F52%2F28%2FiaIJE7.jpg&f=1&nofb=1");
       background-position: bottom;
-      background-size: 150%;
+      background-size: 100%;
       opacity: 0.9;
+      height: 100%;
     }
 
     #field4:hover {
@@ -215,9 +209,71 @@
       text-shadow: 2px 2px black;
     }
 
-    #field3, #field4 {
-      margin-top: 1vh;
+		.card {
+			transform: translate(0%,0%);
+			transition: .8s;
+		  border: 4px solid;
+		  border-radius: 10px;
+		  display: inline-block;
+		  width:45%;
+		  min-width:45%;
+		  height: 25vh;
+			margin: 1vh 1vw;
+		}
+
+    .card #field1, .card #field2, .card #field3, .card #field4{
+    	border-radius: 8px;
     }
+
+		.card .details {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 60%;
+			height: 100%;
+			background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fvectors%2Fseamless-leaf-pattern-in-shades-of-green-vector-id165955381&f=1&nofb=1");
+      background-size: 100%;
+      background-repeat: repeat-y;
+      background-position: center;
+			transition: .7s;
+			transform-origin: left;
+			transform: perspective(2000px) rotateY(-90deg);
+      border-radius: 8px;
+      margin: auto;
+		}
+
+		.card:hover .details {
+			transform: perspective(2000px) rotateY(0deg);
+		}
+
+		.card .details .center {
+			padding: 15px;
+			background-color: lightgreen;
+    	border-radius: 50px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			margin: auto;
+			opacity: 0.85;
+			border: 1px solid black;
+		}
+
+		.card .details .center p {
+			text-color: black;
+			font-weight: bold;
+    	font-size: 11px;
+		}
+
+		.card form input{
+	  	margin: auto;
+	  	width: 60%;
+	  	border-radius: 8px;
+		}
+
+		.card button{
+			margin-left: 35%;
+			border-radius: 8px;
+		}
 
     #charts{
       transition .8s;
@@ -226,7 +282,7 @@
       width: 50%;
       border: solid 2px;
       margin: auto;
-      margin-top: 5vh;
+      margin-top: 22vh;
     }
 
     #sprinklers {
@@ -319,29 +375,11 @@
         margin: auto;
       }
 
-      #field1 {
+      .card {
         display: block;
         width: 50%;
         margin: auto;
         margin-top: 3vh;
-        margin-bottom: 3vh;
-      }
-      #field2 {
-        display: block;
-        width: 50%;
-        margin: auto;
-        margin-bottom: 3vh;
-      }
-      #field3 {
-        display: block;
-        width: 50%;
-        margin: auto;
-        margin-bottom: 3vh;
-      }
-      #field4 {
-        display: block;
-        width: 50%;
-        margin: auto;
         margin-bottom: 3vh;
       }
     }
@@ -350,7 +388,7 @@
 
   <script type="text/javascript">
   	document.getElementById("myonoffswitch").checked = false;
-  
+
     function openNav() {
       if (document.getElementById("sidebar").style.width == "8vw") {
         document.getElementById("sidebar").style.width = "16vw";
@@ -370,14 +408,14 @@
         document.getElementById("set").hidden = true;
       }
     }
-    
+
     function activateSprinklers(){
     	var f = document.getElementById("num_field").value;
     	var m = document.getElementById("minutes").value;
     	alert("Sprinklers of field number " + f + " activated for " + m + " minutes!");
     	document.getElementById("myonoffswitch").checked = false;
     }
-    
+
   </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -473,27 +511,78 @@
   </script>
 
   <div id="fields">
-    <div id="field1">
-      <h5>Field 1</h5>
-      <span>Crop type: {{fields[0]["type"]}}</span><br>
-      <span>Dimension (mq): {{fields[0]["mq_available"]}}</span><br>
-    </div>
-    <div id="field2">
-      <h5>Field 2</h5>
-      <span>Crop type: {{fields[1]["type"]}}</span><br>
-      <span>Dimension (mq): {{fields[1]["mq_available"]}}</span><br>
-    </div>
-    <br>
-    <div id="field3">
-      <h5>Field 3</h5>
-      <span>Crop type: {{fields[2]["type"]}}</span><br>
-      <span>Dimension (mq): {{fields[2]["mq_available"]}}</span><br>
-    </div>
-    <div id="field4">
-      <h5>Field 4</h5>
-      <span>Crop type: {{fields[3]["type"]}}</span><br>
-      <span>Dimension (mq): {{fields[3]["mq_available"]}}</span><br>
-    </div>
+
+		<div class="card">
+		  <div id="field1">
+		    <h5>Field 1</h5>
+		    <br><span>Crop type: {{fields[0]["crop_type"]}}</span><br>
+		    <span>Dimension (mq): {{fields[0]["mq_available"]}}</span><br>
+		  </div>
+		  <div class="details">
+		    <div class="center">
+		      <form method="POST">
+		      	<input type="text" value="1" name="id" hidden>
+						<p>Insert new crop&nbsp;<input type="text" name="a" value="{{fields[0]['crop_type']}}"></p>
+						<p>Insert new mqs&nbsp;<input type="number" name="b" value="{{fields[0]['mq_available']}}"></p>
+						<button type="submit">Update</button>
+				  </form>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="card">
+		  <div id="field2">
+		    <h5>Field 2</h5>
+		    <br><span>Crop type: {{fields[1]["crop_type"]}}</span><br>
+		    <span>Dimension (mq): {{fields[1]["mq_available"]}}</span><br>
+		  </div>
+		  <div class="details">
+		    <div class="center">
+          <form method="POST">
+          	<input type="text" value="2" name="id" hidden>
+						<p>Insert new crop&nbsp;<input type="text" name="a" value="{{fields[1]['crop_type']}}"></p>
+						<p>Insert new mqs&nbsp;<input type="number" name="b" value="{{fields[1]['mq_available']}}"></p>
+						<button type="submit">Update</button>
+				  </form>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="card">
+		  <div id="field3">
+		    <h5>Field 3</h5>
+		    <br><span>Crop type: {{fields[2]["crop_type"]}}</span><br>
+		    <span>Dimension (mq): {{fields[2]["mq_available"]}}</span><br>
+		  </div>
+		  <div class="details">
+		    <div class="center">
+          <form method="POST">
+          	<input type="text" value="3" name="id" hidden>
+						<p>Insert new crop&nbsp;<input type="text" name="a" value="{{fields[2]['crop_type']}}"></p>
+						<p>Insert new mqs&nbsp;<input type="number" name="b" value="{{fields[2]['mq_available']}}"></p>
+						<button type="submit">Update</button>
+				  </form>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="card">
+		  <div id="field4">
+		    <h5>Field 4</h5>
+		    <br><span>Crop type: {{fields[3]["crop_type"]}}</span><br>
+		    <span>Dimension (mq): {{fields[3]["mq_available"]}}</span><br>
+		  </div>
+		  <div class="details">
+		    <div class="center">
+          <form method="POST">
+          	<input type="text" value="4" name="id" hidden>
+						<p>Insert new crop&nbsp;<input type="text" name="a" value="{{fields[3]['crop_type']}}"></p>
+						<p>Insert new mqs&nbsp;<input type="number" name="b" value="{{fields[3]['mq_available']}}"></p>
+						<button type="submit">Update</button>
+				  </form>
+		    </div>
+		  </div>
+		</div>
   </div>
 
   <div id="charts">
@@ -504,7 +593,7 @@
 		const labels = ['January', 'February', 'March', 'April',
 		  'May', 'June', 'July', 'August', 'September', 'October',
 		  'November', 'December'];
-		  
+
 		const data = {
 		  labels: labels,
 		  datasets: [{
