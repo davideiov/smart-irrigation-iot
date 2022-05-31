@@ -1,7 +1,7 @@
 # smart-irrigation-iot
 Implementation of an IoT architecture using Serverless Computing via LocalStack. 
 
-# A plan of Smart Irrigation using Serverless Computing
+# An infrastracture of Smart Irrigation using Serverless Computing
 
 ## Project overview
 
@@ -11,11 +11,11 @@ In order to implement an intelligent irrigation, the plan of irrigation needs to
 To determine the irrigation demands of crops, it is necessary to determine the water balance, that is to quantify the income (rain and irrigation) and the outputs which are mainly constituted by the consumption of the soil-plant system.
 In the end, for the calculation of the water balance information relating to the soil is therefore necessary, crop and meteorological parameters (like rain and temperature).
 
-At the first, information were obtained about the water needs of the different crops through appropriate researches on the net. Those values were stored in a JSON file, which is examined by the serverless function. Then an irrigation plan was simulated taking into about the probability of daily rain, the rain mm fallen the previous day and finally the information obtained from IoT sensors such as temperatures and soil humidity. With these information, the amount of liter of water by field is calculated and sent (through fake Http Requests) to a central system, that manages the sprinklers, and which monitors the irrigation.
+At the first, information were obtained about the water needs of the different crops through appropriate researches on the net. Those values were stored in a JSON file, which is examined by the first serverless function. Then an irrigation plan was simulated taking into about the probability of daily rain, the rain mm fallen the previous day and finally the information obtained from IoT sensors such as temperatures and soil humidity. With these information, the amount of liter of water by field is calculated and sent (through fake Http Requests) to a central system, that manages the sprinklers, and which monitors the irrigation.
 
 Among the others functionalities we have the chance to manage greenhouses, providing an air cooling through a ventilation system, enabled automatically when the air temperature into greenhouse is two times higher than the outside temperature.
 
-Also, we have several IoT sensor that can measure every two weeks the pH of the field, obviously, if there are problems, an email is sent to the farmer to notify him about this, requiring a fertilization session of the field which presents the problem.
+Also, we have several IoT sensor that can measure every two weeks the pH of the field, obviously, if there are problems, an email (and optionally a telegram message) is sent to the farmer to notify him about this, requiring a fertilization session of the field which presents the problem.
 
 ## Implementation overview
 
@@ -38,7 +38,7 @@ The farmer can watch and manage these informations (weather forecast, fields inf
 * AWS DynamoDB: Utilized to store data, in particular, the quantity of water saved every day and the informations relative to fields, crop type and mq available.
 * Flask: Web server which allows the use of python as backend programming language.
 * AWS SES: Used to send the mail to farmer.
-* Cloudwatch logs: tracks the e-mails sent.
+* Cloudwatch logs: Tracks the e-mails sent.
 
 ## Installation and usage
 
@@ -49,6 +49,7 @@ The farmer can watch and manage these informations (weather forecast, fields inf
 3. boto3
 4. Flask
 5. (Optional) nodejs for database interface
+6. (Optional) telegram bot
 
 ### Setting up the environment
 
@@ -83,7 +84,7 @@ and then go to
 6. Edit the values into the config.py file (location and email of farmer)
  
 7. Require an api-key from https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/ and put into the config.py
-8. Create the time-triggered Lambda function to elaborate the data      
+8. Create the time-triggered Lambda functions to elaborate the data      
 >  1. Create the role
            
         aws iam create-role --role-name lambdarole --assume-role-policy-document file://code/role_policy.json --query 'Role.Arn' --endpoint-url=http://localhost:4566
@@ -124,13 +125,20 @@ and then go to
         aws events put-targets --rule everyDay --targets file://targets.json --endpoint-url=http://localhost:4566      
 >    Well done! Now every day, the serverless function will be triggered, check this into dashboard!
 
+### Setting telegram bot
+
+1. Create a new bot requiring it from BotFather through telegram.
+2. Obtain your bot_id from https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates.
+3. Open config.py and edit the fields: BotUse = "true", BotToken = <YOUR_TOKEN>, BotId = <YOUR_ID>.
+
+
 ### Use it
 
 1. Simulate the IoT devices   
 >         python3 code/soil_sensors.py (for irrigationPlan serverless function)
 >         python3 code/greenhouse_sensor.py (for ventilation serverless function)
 >         python3 code/ph_sensor.py (for soilFertility serverless function)
-2. Wait the invokation of Lambda function or invoke it manually.
+2. Wait the invokation of Lambda functions or invoke it manually.
 3. Run flask with the command 
 >         flask run
 4. Go to the website and see the informations what you want.
