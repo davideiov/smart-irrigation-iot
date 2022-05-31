@@ -93,37 +93,58 @@ and then go to
 
         aws iam put-role-policy --role-name lambdarole --policy-name lambdapolicy --policy-document file://code/policy.json --endpoint-url=http://localhost:4566
 
->  3. To create the zip file, move with the shell in the folder named 'code'       
+>  3. To create the zip file, move in the folder 'code'       
 
         cd code
-        zip smartIrrigation.zip function.py config.py fabbisogni.json
+        zip irrigation.zip irrigationPlan.py config.py needs.json
+        zip ventilation.zip ventilation.py config.py
+        zip fertility.zip soilFertility.py config.py
 
 >  4. Create the function and save the Arn (it should be something like arn:aws:lambda:us-east-2:000000000000:function:smartIrrigation)         
         
-        aws lambda create-function --function-name smartIrrigation --zip-file fileb://smartIrrigation.zip --handler function.lambda_handler --runtime python3.8 --role arn:aws:iam::000000000000:role/lambdarole --endpoint-url=http://localhost:4566
+        aws lambda create-function --function-name irrigation --zip-file fileb://irrigation.zip --handler irrigationPlan.lambda_handler --runtime python3.8 --role arn:aws:iam::000000000000:role/lambdarole --endpoint-url=http://localhost:4566
+
+        aws lambda create-function --function-name ventilation --zip-file fileb://ventilation.zip --handler ventilation.lambda_handler --runtime python3.8 --role arn:aws:iam::000000000000:role/lambdarole --endpoint-url=http://localhost:4566
+
+        aws lambda create-function --function-name fertility --zip-file fileb://fertility.zip --handler soilFertility.lambda_handler --runtime python3.8 --role arn:aws:iam::000000000000:role/lambdarole --endpoint-url=http://localhost:4566
 
 >  4b. If you want invoke the lambda function manually, at the first generate the random values of sensors and then invoke the serverless function
         
-        python3 sensors.py
-        aws lambda invoke --function-name smartIrrigation out --endpoint-url=http://localhost:4566
+        python3 soil_sensors.py
+        aws lambda invoke --function-name irrigation out --endpoint-url=http://localhost:4566
+        
+        python3 greenhouse_sensor.py
+        aws lambda invoke --function-name ventilation out --endpoint-url=http://localhost:4566
+        
+        python3 ph_sensor.py
+        aws lambda invoke --function-name fertility out --endpoint-url=http://localhost:4566
 
->  5. Set up a CloudWatch rule to trigger the lambda function every day at 8:15
->>   1. Create the rule and save the Arn (it should be something like arn:aws:events:us-east-2:000000000000:rule/everyDay)       
+>  5. Set up a CloudWatch rule to trigger the lambda functions
+>>   1. Create the rule and save the Arn (it should be something like arn:aws:events:us-east-2:000000000000:rule/<--name>)       
    
         aws events put-rule --name everyDay --schedule-expression 'cron(15 8 * * ? *)' --endpoint-url=http://localhost:4566
+        aws events put-rule --name every2Weeks --schedule-expression 'rate(14 days)' --endpoint-url=http://localhost:4566
+        aws events put-rule --name every2Hours --schedule-expression 'rate(2 hours)' --endpoint-url=http://localhost:4566
 
->>    2. Check that the rule has been correctly created with the frequency wanted       
+>>    2. Check that the rules has been correctly created with the frequency wanted       
 
         aws events list-rules --endpoint-url=http://localhost:4566
 
 >>   3. Add permissions to the rule        
   
-        aws lambda add-permission --function-name smartIrrigation --statement-id everyDay --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:us-east-2:000000000000:rule/smartIrrigation --endpoint-url=http://localhost:4566
+        aws lambda add-permission --function-name irrigation --statement-id everyDay --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:us-east-2:000000000000:rule/irrigation --endpoint-url=http://localhost:4566
 
->>    4. Add the lambda function to the rule using the JSON file containing the Lambda function Arn       
+        aws lambda add-permission --function-name ventilation --statement-id every2Hours --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:us-east-2:000000000000:rule/ventilation --endpoint-url=http://localhost:4566
 
-        aws events put-targets --rule everyDay --targets file://targets.json --endpoint-url=http://localhost:4566      
->    Well done! Now every day, the serverless function will be triggered, check this into dashboard!
+        aws lambda add-permission --function-name fertility --statement-id every2Weeks --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:us-east-2:000000000000:rule/fertility --endpoint-url=http://localhost:4566
+
+>>    4. Add the lambda functions to the rule using the JSON file containing the Lambda function Arn       
+
+        aws events put-targets --rule everyDay --targets file://irrigation_targets.json --endpoint-url=http://localhost:4566
+        aws events put-targets --rule every2Hours --targets file://ventilation_targets.json --endpoint-url=http://localhost:4566
+        aws events put-targets --rule every2Weeks --targets file://fertility_targets.json --endpoint-url=http://localhost:4566
+        
+>    Well done! Now, the serverless functions will be triggered, check this into dashboard!
 
 ### Setting telegram bot
 
@@ -135,9 +156,9 @@ and then go to
 ### Use it
 
 1. Simulate the IoT devices   
->         python3 code/soil_sensors.py (for irrigationPlan serverless function)
+>         python3 code/soil_sensors.py (for irrigation serverless function)
 >         python3 code/greenhouse_sensor.py (for ventilation serverless function)
->         python3 code/ph_sensor.py (for soilFertility serverless function)
+>         python3 code/ph_sensor.py (for fertility serverless function)
 2. Wait the invokation of Lambda functions or invoke it manually.
 3. Run flask with the command 
 >         flask run
