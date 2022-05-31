@@ -25,7 +25,27 @@ table_water = dynamodb.create_table(
 )
 
 table_fields = dynamodb.create_table(
-    TableName='Fields',
+    TableName='Field',
+    KeySchema=[
+        {
+            'AttributeName': 'id',
+            'KeyType': 'HASH'
+        }
+    ],
+    AttributeDefinitions=[
+        {
+            'AttributeName': 'id',
+            'AttributeType': 'S'
+        }
+    ],
+    ProvisionedThroughput={
+        'ReadCapacityUnits': 10,
+        'WriteCapacityUnits': 10
+    }
+)
+
+table_greenhouses = dynamodb.create_table(
+    TableName='Greenhouse',
     KeySchema=[
         {
             'AttributeName': 'id',
@@ -65,13 +85,32 @@ for i in range(int(datetime.datetime.now().strftime("%d")) - 1):
 	days.append(int(random.randint(75,300)))
 	table_water.update_item(Key={'month-year': '05-2022'}, UpdateExpression="set days = :days", ExpressionAttributeValues={':days': days})
 	
-table_fields.put_item(Item={'id': '1', 'mq_available': '500', 'crop_type': 'mais'})
-table_fields.put_item(Item={'id': '2', 'mq_available': '350', 'crop_type': 'soia'})
-table_fields.put_item(Item={'id': '3', 'mq_available': '600', 'crop_type': 'bietola'})
-table_fields.put_item(Item={'id': '4', 'mq_available': '550', 'crop_type': 'riso'})
+table_fields.put_item(Item={'id': '1', 'mq_available': '500', 'crop_type': 'corn', 'ph': '7'})
+table_fields.put_item(Item={'id': '2', 'mq_available': '350', 'crop_type': 'soy', 'ph': '7'})
+table_fields.put_item(Item={'id': '3', 'mq_available': '600', 'crop_type': 'chard', 'ph': '7'})
+table_fields.put_item(Item={'id': '4', 'mq_available': '550', 'crop_type': 'rice', 'ph': '1'})
+
+table_greenhouses.put_item(Item={'id': '1', 'mq_available': '100', 'crop_type': 'fruit', 'ph': '7'})
+table_greenhouses.put_item(Item={'id': '2', 'mq_available': '70', 'crop_type': 'vegetable', 'ph': '7'})
+
+client = boto3.client('logs',endpoint_url="http://localhost:4566")
+retention_period_in_days = 5
+
+client.create_log_group(logGroupName='SoilFertility')
+
+client.put_retention_policy(
+	logGroupName='SoilFertility',
+	retentionInDays=retention_period_in_days
+)
+client.create_log_stream(
+    logGroupName='SoilFertility',
+    logStreamName='EmailSent'
+)
 
 print('Table', table_water, 'created and populated!')
 print('Table', table_fields, 'created and populated!')
+print('Table', table_greenhouses, 'created and populated!')
+print('Cloudwatch stream correctly created!')
 
 
 
