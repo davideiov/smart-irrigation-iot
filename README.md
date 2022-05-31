@@ -29,7 +29,7 @@ The farmer can watch and manage these informations (weather forecast, fields inf
 
 ## Architecture
 
-<p align="center"><img src="./img/iot_architecture.png"/></p>
+<p align="center"><img src="./img/architecture.png"/></p>
 
 * IoT devices: Simulated using a Python script, with boto3. They measure every day soil humidity and soil temperature.
 * AWS SQS: Used to store the messages of IoT sensors, then, these informations are retrieved by the serverless function.
