@@ -11,322 +11,301 @@
   <!-- my css -->
   <style>
     html{
-      height: 100%;
-      width 100%;
+		height: 100%;
+		width 100%;
     }
 
     body{
-      height: 100%;
-      width 100%;
-      font-family: serif;
-      background-image: url("https://wallpaperboat.com/wp-content/uploads/2019/12/leaf-pattern-18.jpg");
-      background-size: 100%;
-      background-repeat: repeat-y;
-      background-position: center;
+		height: 100%;
+		width 100%;
+		font-family: serif;
+		background-image: url("https://wallpaperboat.com/wp-content/uploads/2019/12/leaf-pattern-18.jpg");
+		background-size: 100%;
+		background-repeat: repeat-y;
+		background-position: center;
     }
 
     #header{
-      border: solid 1px black;
+		border: solid 1px black;
     }
 
     #header h3{
-      color: green;
-      text-align: center;
-      width: 100%;
+		color: green;
+		text-align: center;
+		width: 100%;
     }
 
     #sidebar {
-      transition: .5s;
-      opacity: 0.8;
-      min-width: 8vw;
-      width: 8vw;
-      position: fixed;
-      left: 0;
-      top: 0;
-      height: 100%;
-      z-index: 1;
-      border: solid 1px black;
-      float: left;
+		transition: .5s;
+		opacity: 0.8;
+		min-width: 8vw;
+		width: 8vw;
+		position: fixed;
+		left: 0;
+		top: 0;
+		height: 100%;
+		z-index: 1;
+		border: solid 1px black;
+		float: left;
     }
 
     #sidebar:hover{
-      transition: .5s;
-      opacity: 1;
+		transition: .5s;
+		opacity: 1;
     }
 
     #sidebar a:hover{
-      color: green;
+		color: green;
     }
 
     #sidebar p{
-      margin: auto;
-      color: green;
+		margin: auto;
+		color: green;
     }
 
     #sidebar ul{
-      margin-top: 5vh;
+		margin-top: 5vh;
     }
 
     #sidebar li{
-      margin-bottom: 3vh;
+		margin-bottom: 3vh;
     }
 
     #sidebar li span{
-      margin: auto;
-      margin-left: 1vw;
+		margin: auto;
+		margin-left: 1vw;
     }
 
     #sidebar li a svg{
-      margin-left: 3vw;
+		margin-left: 3vw;
     }
 
     #sidebar div:last-child{
-      display: inline-block;
-      text-align: center;
-      margin-bottom: 2vh;
+		display: inline-block;
+		text-align: center;
+		margin-bottom: 2vh;
     }
 
     #sidebar div p{
-      color: white;
+		color: white;
     }
 
     #welcome {
-      transition: 0.8s;
-      background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fyesofcorsa.com%2Fwp-content%2Fuploads%2F2018%2F08%2F4K-Field-Best-Wallpaper.jpg&f=1&nofb=1");
-      opacity: 0.9;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      text-shadow: 2px 2px black;
-      height: 40%;
-      width: 91.5vw;
-      font-size: 20px;
-      font-style: italic;
-      text-align: center;
-      font-weight: bold;
-      color: white;
-      letter-spacing: 2px;
-      margin-left: 8vw;
-      padding-top: 10vh;
-      border: solid 2px black;
+		transition: 0.8s;
+		background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fyesofcorsa.com%2Fwp-content%2Fuploads%2F2018%2F08%2F4K-Field-Best-Wallpaper.jpg&f=1&nofb=1");
+		opacity: 0.9;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		text-shadow: 2px 2px black;
+		height: 35%;
+		width: 92vw;
+		font-size: 20px;
+		font-style: italic;
+		text-align: center;
+		font-weight: bold;
+		color: white;
+		letter-spacing: 2px;
+		margin-left: 8vw;
+		padding-top: 10vh;
+		border: solid 2px black;
     }
 
     #welcome:hover {
-      transition: 1s;
-      opacity: 1;
+		transition: 1s;
+		opacity: 1;
     }
 
     #welcome p{
-      opacity: 1;
-      line-spacing: 0.8;
-      margin: auto;
-      width: 100%;
-      text-align: center;
+		opacity: 1;
+		line-spacing: 0.8;
+		margin: auto;
+		width: 100%;
+		text-align: center;
     }
 
     #div_weather{
-      margin: auto;
-      margin-top: 5vh;
-      width: 60vw;
-      border-radius: 15px;
-      border: solid 2px black;
+		margin: auto;
+		margin-top: 5vh;
+		width: 60vw;
+		border-radius: 15px;
+		border: solid 2px black;
     }
 
-    #fields {
-      width: 65vw;
-      height: 35vh;
-      transition: .8s;
-      margin: auto;
-      margin-top: 5vh;
+    #carousel{
+		padding: 5px;
+		background-color: darkgreen;
+		width: 50vw;
+		margin: auto;
+		margin-top: 12vh;
+		border: 1px solid black;
+		border-radius: 10px;
     }
 
-    #field1 {
-      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DIVsiIUj2mEn9aMi7c2LQwHaE8%26pid%3DApi&f=1");
-      background-position: bottom;
-      background-size: 100%;
-      opacity: 0.9;
-      height: 100%;
+    #carousel p{
+		text-align: center;
+		color: black;
+		margin-top: 1vh;
     }
 
-    #field1:hover {
-      opacity: 1;
+    .card {
+		transform: translate(0%,0%);
+		transition: .8s;
+	  	border: 4px solid;
+	  	border-radius: 10px;
+  		width: 90%;
+  		height: 35vh;
+		margin: auto;
+		background-size: cover;
+		background-position: bottom;
+	}
+	
+	.field{
+		background-color: lightgray;
+		text-color: black;
+		font-weight: bold;
+		opacity: 0.8;
+		height: 100%;
+		width: 30%;
+		border: 1px solid darkgray;
+	}
+	
+	.card .form {
+		padding: 20px;
+		text-align: center;
+		background-color: lightgray;
+		opacity: 0.9;
+		text-color: black;
+		font-weight: bold;
+		margin: auto;
+		border: 1px solid black;
+		border-radius: 8px;
+		width: 75%;
+		height: 100%;
+	}
+	
+	.card .form p{
+		color: black;
+		text-color: black;
+	}
+
+    .card h5{
+		margin-top: 2vh;
+		margin-left: 2vw;
     }
 
-    #field2 {
-      background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F8%2F0%2F6%2F425688.jpg&f=1&nofb=1");
-      background-position: bottom;
-      background-size: 100%;
-      opacity: 0.9;
-      height: 100%;
+    .card span{
+		margin-left: 2vw;
     }
 
-    #field2:hover {
-      opacity: 1;
-    }
+	.card .details {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fvectors%2Fseamless-leaf-pattern-in-shades-of-green-vector-id165955381&f=1&nofb=1");
+		background-size: 100%;
+		background-repeat: repeat-y;
+		background-position: center;
+		transition: .7s;
+		transform-origin: left;
+		transform: perspective(2000px) rotateY(-90deg);
+		border-radius: 8px;
+		margin: auto;
+	}
 
-    #field3 {
-      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uLPYRaJTauFBbo2Nb8-GQwHaE8%26pid%3DApi&f=1");
-      background-position: bottom;
-      background-size: 100%;
-      opacity: 0.9;
-      height: 100%;
-    }
+	.card:hover .details {
+		transform: perspective(2000px) rotateY(0deg);
+	}
 
-    #field3:hover {
-      opacity: 1;
-    }
+	.card .details .center {
+		padding: 15px;
+		background-color: lightgreen;
+		border-radius: 50px;
+		position: absolute;
+		top: 50%;
+  		left: 25%;
+		transform: translateY(-50%);
+		margin: auto;
+		opacity: 0.85;
+		border: 1px solid black;
+	}
 
-    #field4 {
-      background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F52%2F28%2FiaIJE7.jpg&f=1&nofb=1");
-      background-position: bottom;
-      background-size: 100%;
-      opacity: 0.9;
-      height: 100%;
-    }
+	.card .details .center p {
+		text-color: black;
+		font-weight: bold;
+		font-size: 11px;
+	}
 
-    #field4:hover {
-      opacity: 1;
-    }
+	.card form input{
+  	margin: auto;
+  	width: 60%;
+  	border-radius: 8px;
+	}
 
-    #fields span {
-      color: white;
-      font-style: italic;
-      font-weight: bold;
-      font-family: serif;
-      line-height: 1px;
-      color: white;
-      text-shadow: 2px 2px black;
-    }
-
-    #fields h5 {
-      color: white;
-      font-style: italic;
-      font-weight: bold;
-      font-family: serif;
-      margin-top: 0px;
-      margin-bottom: 80px;
-      text-align: center;
-      text-shadow: 2px 2px black;
-    }
-
-		.card {
-			transform: translate(0%,0%);
-			transition: .8s;
-		  border: 4px solid;
-		  border-radius: 10px;
-		  display: inline-block;
-		  width:45%;
-		  min-width:45%;
-		  height: 25vh;
-			margin: 1vh 1vw;
-		}
-
-    .card #field1, .card #field2, .card #field3, .card #field4{
-    	border-radius: 8px;
-    }
-
-		.card .details {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 60%;
-			height: 100%;
-			background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fvectors%2Fseamless-leaf-pattern-in-shades-of-green-vector-id165955381&f=1&nofb=1");
-      background-size: 100%;
-      background-repeat: repeat-y;
-      background-position: center;
-			transition: .7s;
-			transform-origin: left;
-			transform: perspective(2000px) rotateY(-90deg);
-      border-radius: 8px;
-      margin: auto;
-		}
-
-		.card:hover .details {
-			transform: perspective(2000px) rotateY(0deg);
-		}
-
-		.card .details .center {
-			padding: 15px;
-			background-color: lightgreen;
-    	border-radius: 50px;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			margin: auto;
-			opacity: 0.85;
-			border: 1px solid black;
-		}
-
-		.card .details .center p {
-			text-color: black;
-			font-weight: bold;
-    	font-size: 11px;
-		}
-
-		.card form input{
-	  	margin: auto;
-	  	width: 60%;
-	  	border-radius: 8px;
-		}
-
-		.card button{
-			margin-left: 35%;
-			border-radius: 8px;
-		}
+	.card .details button{
+		margin-left: 35%;
+		border-radius: 8px;
+	}
 
     #charts{
-      transition .8s;
-      border-radius: 15px;
-      background-color: lightgrey;
-      width: 50%;
-      border: solid 2px;
-      margin: auto;
-      margin-top: 22vh;
+		transition .8s;
+		border-radius: 15px;
+		background-color: lightgrey;
+		width: 50%;
+		border: solid 2px;
+		margin: auto;
+		margin-top: 10vh;
+    }
+
+    #charts p{
+		text-align: center;
+		color: black;
+		font-size: 1.2rem;
     }
 
     #sprinklers {
-      transition:margin .8s ease;
-      border: solid 2px;
-      margin: auto;
-      margin-top: 8vh;
-      margin-bottom: 4vh;
-      color: black;
-      padding: 3vh;
-      border-radius: 15px;
-      background-color: lightgrey;
-      text-align: center;
-      transition: 0.2s;
-      width: 50%;
+		transition:margin .8s ease;
+		border: solid 2px;
+		margin: auto;
+		margin-top: 8vh;
+		margin-bottom: 4vh;
+		color: black;
+		padding: 3vh;
+		border-radius: 15px;
+		background-color: lightgrey;
+		text-align: center;
+		transition: 0.2s;
+		width: 50%;
     }
 
     #sprinklers select {
-      border: solid 1px;
-      margin: auto;
-      width: 50%;
+		border: solid 1px;
+		margin: auto;
+		width: 50%;
     }
 
     #sprinklers input {
-      border: solid 1px;
-      margin: auto;
-      width: 50%;
+		border: solid 1px;
+		margin: auto;
+		width: 50%;
     }
 
     #footer {
-      position: relative;
-      bottom: 0;
-      height: 6%;
-      width: 100%;
-      background-color: #212529;
-      padding: 1vh;
-      border: solid 2px black;
+		position: relative;
+		bottom: 0;
+		height: 6%;
+		width: 100%;
+		background-color: #212529;
+		padding: 1vh;
+		border: solid 2px black;
     }
 
     #footer p{
-      width: 100%;
-      color: white;
-      text-align: center;
-      margin: auto;
+		width: 100%;
+		color: white;
+		text-align: center;
+		margin: auto;
     }
 
     .onoffswitch {
@@ -369,21 +348,6 @@
         right: 0px;
     }
 
-    @media screen and (max-width: 650px){
-      #fields{
-        width: 60%;
-        margin: auto;
-      }
-
-      .card {
-        display: block;
-        width: 50%;
-        margin: auto;
-        margin-top: 3vh;
-        margin-bottom: 3vh;
-      }
-    }
-
   </style>
 
   <script type="text/javascript">
@@ -392,6 +356,7 @@
     function openNav() {
       if (document.getElementById("sidebar").style.width == "8vw") {
         document.getElementById("sidebar").style.width = "16vw";
+        document.getElementById("welcome").style.width = "84vw";
         document.getElementById("welcome").style.marginLeft = "16vw";
         document.getElementById("home").hidden = false;
         document.getElementById("weather").hidden = false;
@@ -401,6 +366,7 @@
       } else {
         document.getElementById("sidebar").style.width = "8vw";
         document.getElementById("welcome").style.marginLeft = "8vw";
+        document.getElementById("welcome").style.width = "92vw";
         document.getElementById("home").hidden = true;
         document.getElementById("weather").hidden = true;
         document.getElementById("crops").hidden = true;
@@ -410,16 +376,22 @@
     }
 
     function activateSprinklers(){
-    	var f = document.getElementById("num_field").value;
+		var f = document.getElementById("num_field").value;
+      	var g = document.getElementById("num_gh").value;
     	var m = document.getElementById("minutes").value;
-    	alert("Sprinklers of field number " + f + " activated for " + m + " minutes!");
+		if(f > 0){
+			alert("Sprinklers of field number " + f + " activated for " + m + " minutes!");
+		}
+		if(g > 0){
+			alert("Sprinklers of greenhouse number " + g + " activated for " + m + " minutes!");
+		}
     	document.getElementById("myonoffswitch").checked = false;
     }
 
   </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body onload="makeChart({{water}})">
+<body onload="makeChart({{water}});">
 
   <div id="header" class="px-3 py-2 bg-dark text-white">
     <div class="container">
@@ -465,7 +437,7 @@
         </a>
       </li>
       <li>
-        <a href="#fields" class="nav-link link-light p-0">
+        <a href="#carousel" class="nav-link link-light p-0">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/>
           </svg>
@@ -498,7 +470,7 @@
         <p>Davide Iovino</p>
       </a>
     </div>
-	</div>
+  </div>
 
   <div id="welcome">
     <p>Welcome to the Smart Irrigation project.<br>
@@ -510,82 +482,125 @@
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
 
-  <div id="fields">
-
-		<div class="card">
-		  <div id="field1">
-		    <h5>Field 1</h5>
-		    <br><span>Crop type: {{fields[0]["crop_type"]}}</span><br>
-		    <span>Dimension (mq): {{fields[0]["mq_available"]}}</span><br>
-		  </div>
-		  <div class="details">
-		    <div class="center">
-		      <form method="POST">
-		      	<input type="text" value="1" name="id" hidden>
-						<p>Insert new crop&nbsp;<input type="text" name="a" value="{{fields[0]['crop_type']}}"></p>
-						<p>Insert new mqs&nbsp;<input type="number" name="b" value="{{fields[0]['mq_available']}}"></p>
-						<button type="submit">Update</button>
-				  </form>
+  <div id="carousel">
+    <p style="color:white;font-weight:bold">Check your fields and greenhouses status or update them simply hovering your mouse here!</p>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+		{% for field in fields %}
+			<div class="carousel-item">
+		      <div class="card" style="background-image: url({{imgf[(field['id']|int) % 3]}})">
+		      	{% if field["ph"]|int < 4 or field["ph"]|int > 9 %}
+  		    		<span style="background-color: red; color: black; font-weight: bold; text-align: center; margin: auto; postion: relative; width: 100%; z-index: 9; border-radius: 5px">Watch out!! The ph is {{field["ph"]}}, use fertilizant to avoid the lose of crops.</span><br>
+	  		    {% endif %}
+		        <div class="d-block field">
+		          	<h5>Field {{field["id"]}}</h5>
+	  		    	<br><br><span>Crop type: {{field["crop_type"]}}</span><br>
+		  		    <span>Dimension (mq): {{field["mq_available"]}}</span><br>
+		        </div>
+		        <div class="details">
+		  		    <div class="center">
+		  		      <form method="POST">
+		  		      	<input type="text" value="{{field['id']}}" name="id" hidden>
+		  		      	<input type="text" value="field" name="type" hidden>
+  						<p>Insert new crop&nbsp;<input type="text" name="a" value="{{field['crop_type']}}"></p>
+  						<p>Insert new mqs&nbsp;<input type="number" name="b" value="{{field['mq_available']}}"></p>
+              			<button type="submit">Update</button>
+	  				  </form>
+		  		    </div>
+		  		  </div>
+		      </div>
 		    </div>
-		  </div>
-		</div>
-
-		<div class="card">
-		  <div id="field2">
-		    <h5>Field 2</h5>
-		    <br><span>Crop type: {{fields[1]["crop_type"]}}</span><br>
-		    <span>Dimension (mq): {{fields[1]["mq_available"]}}</span><br>
-		  </div>
-		  <div class="details">
-		    <div class="center">
-          <form method="POST">
-          	<input type="text" value="2" name="id" hidden>
-						<p>Insert new crop&nbsp;<input type="text" name="a" value="{{fields[1]['crop_type']}}"></p>
-						<p>Insert new mqs&nbsp;<input type="number" name="b" value="{{fields[1]['mq_available']}}"></p>
-						<button type="submit">Update</button>
-				  </form>
+		{% endfor %}
+        <div class="carousel-item active">
+			<div class="card" style="background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1164042.jpg&f=1&nofb=1);background-size: 100%;background-position: center">
+    			<div class="d-block w-100 field form">
+              		<h3>Create new field</h3>
+					<div>
+		  		    	<div>
+		  		     		<form method="POST">
+		  		      			<input type="text" value="new" name="id" hidden>
+		  		      			<input type="text" value="field" name="type" hidden>
+	  							<p>Insert the crop&nbsp;<input type="text" name="a"></p>
+	  							<p>Insert the mqs&nbsp;<input type="number" name="b"></p>
+  								<button type="submit">Create</button>
+	  				  		</form>
+		  		    	</div>
+	  		  		</div>
+	      		</div>
+        	</div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <hr>
+    <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+      	{% for gh in greenhouses %}
+		    <div class="carousel-item">
+		      <div class="card" style="background-image: url({{imgg[(gh['id']|int) % 3]}})">
+		      	{% if gh["ph"]|int < 4 or gh["ph"]|int > 9 %}
+	  		    	<span style="background-color: red; color: black; font-weight: bold; text-align: center; margin: auto; postion: relative; width: 100%; z-index: 9; border-radius: 5px">Watch out!! The ph is {{gh["ph"]}}, use fertilizant to avoid the lose of crops.</span><br>
+	  		    {% endif %}
+		        <div class="d-block field">
+		          <h5>Greenhouse {{gh["id"]}}</h5>
+		  		    <br><br><span>Crop type: {{gh["crop_type"]}}</span><br>
+		  		    <span>Dimension (mq): {{gh["mq_available"]}}</span><br>
+		        </div>
+		        <div class="details">
+		  		    <div class="center">
+		  		      <form method="POST">
+		  		      	<input type="text" value="{{gh['id']}}" name="id" hidden>
+		  		      	<input type="text" value="gh" name="type" hidden>
+  						<p>Insert new crop&nbsp;<input type="text" name="a" value="{{gh['crop_type']}}"></p>
+  						<p>Insert new mqs&nbsp;<input type="number" name="b" value="{{gh['mq_available']}}"></p>
+		              	<button type="submit">Update</button>
+	  				  </form>
+		  		    </div>
+		  		  </div>
+		      </div>
 		    </div>
-		  </div>
-		</div>
-
-		<div class="card">
-		  <div id="field3">
-		    <h5>Field 3</h5>
-		    <br><span>Crop type: {{fields[2]["crop_type"]}}</span><br>
-		    <span>Dimension (mq): {{fields[2]["mq_available"]}}</span><br>
-		  </div>
-		  <div class="details">
-		    <div class="center">
-          <form method="POST">
-          	<input type="text" value="3" name="id" hidden>
-						<p>Insert new crop&nbsp;<input type="text" name="a" value="{{fields[2]['crop_type']}}"></p>
-						<p>Insert new mqs&nbsp;<input type="number" name="b" value="{{fields[2]['mq_available']}}"></p>
-						<button type="submit">Update</button>
-				  </form>
-		    </div>
-		  </div>
-		</div>
-
-		<div class="card">
-		  <div id="field4">
-		    <h5>Field 4</h5>
-		    <br><span>Crop type: {{fields[3]["crop_type"]}}</span><br>
-		    <span>Dimension (mq): {{fields[3]["mq_available"]}}</span><br>
-		  </div>
-		  <div class="details">
-		    <div class="center">
-          <form method="POST">
-          	<input type="text" value="4" name="id" hidden>
-						<p>Insert new crop&nbsp;<input type="text" name="a" value="{{fields[3]['crop_type']}}"></p>
-						<p>Insert new mqs&nbsp;<input type="number" name="b" value="{{fields[3]['mq_available']}}"></p>
-						<button type="submit">Update</button>
-				  </form>
-		    </div>
-		  </div>
-		</div>
+        {% endfor %}
+        <div class="carousel-item active">
+			<div class="card" style="background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1164042.jpg&f=1&nofb=1);background-size: 100%;background-position: center">
+    			<div class="d-block w-100 field form">
+              		<h3>Create new greenhouse</h3>
+					<div>
+		  		    	<div>
+		  		     		<form method="POST">
+		  		      			<input type="text" value="new" name="id" hidden>
+		  		      			<input type="text" value="gh" name="type" hidden>
+	  							<p>Insert the crop&nbsp;<input type="text" name="a"></p>
+	  							<p>Insert the mqs&nbsp;<input type="number" name="b"></p>
+  								<button type="submit">Create</button>
+	  				  		</form>
+		  		    	</div>
+	  		  		</div>
+	      		</div>
+        	</div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <hr>
   </div>
 
   <div id="charts">
+    <p>Amount of water saved by month</p>
+    <hr>
     <canvas id="water_chart"></canvas>
   </div>
   <script>
@@ -633,17 +648,27 @@
   <div id="sprinklers">
     <form>
       <h3>Manual start of sprinklers</h3>
+      <hr>
       <select id="num_field" class="form-select" aria-label="Default select example">
         <option selected>Select the field</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-        <option value="4">Four</option>
+        
+        {% for field in fields %}
+        	<option value="{{field["id"]}}">{{field["id"]}}</option>
+        {% endfor %}
       </select>
+      <hr>
+      <select id="num_gh" class="form-select" aria-label="Default select example">
+        <option selected>Select the greenhouse</option>
+        {% for gh in greenhouses %}
+        	<option value="{{gh["id"]}}">{{gh["id"]}}</option>
+        {% endfor %}
+      </select>
+      <hr>
       <div class="mb-3">
         <label for="minutes" class="form-label">Enter how many minutes to switch on</label>
         <input type="text" placeholder="30 (minutes)" class="form-control" id="minutes">
       </div>
+      <hr>
       <span>Slide to activate</span>
       <div class="onoffswitch">
           <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" onchange="activateSprinklers()">
@@ -653,13 +678,11 @@
     </form>
   </div>
 
+
   <div id="footer">
     <p>Serverless Computing for IoT - Università di Salerno</p>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
-
