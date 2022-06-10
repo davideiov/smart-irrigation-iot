@@ -13,7 +13,7 @@ def send_notifications(forg, num, crop, ph):
 		},
 		'Body': {
 		    'Text': {
-		        'Data': 'There is a problem with the ' + forg + ' number ' + num + ' where the crops are ' + crop + ', the soil ph is ' + ph + '! So, please use fertilizer to avoid the lose of your crop.',
+		        'Data': 'There is a problem with the ' + forg + ' number ' + num + ' where the crops are ' + crop + ', the soil ph is ' + ph + '!\nPlease use fertilizer to avoid the lose of your crop.',
 		        'Charset': 'string'
 		    },
 		    'Html': {
@@ -76,6 +76,3 @@ def check_ph():
 
 def lambda_handler(event, context):
  	check_ph()
-
-
-
