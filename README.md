@@ -159,10 +159,12 @@ and then go to
 >         python3 code/soil_sensors.py (for irrigation serverless function)
 >         python3 code/greenhouse_sensor.py (for ventilation serverless function)
 >         python3 code/ph_sensor.py (for fertility serverless function)
-2. Wait the invokation of Lambda functions or invoke it manually.
+2. Wait the invokation of Lambda functions or invoke them manually.
 3. Run flask with the command 
 >         flask run
 4. Go to the website and see the informations what you want.
+5. To check the logs about the sent emails, run this command:
+>       aws logs get-log-events --log-group-name SoilFertility --log-stream-name EmailSent --endpoint-url=http://localhost:4566
 
 ## Future improvements
 
